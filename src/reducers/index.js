@@ -27,7 +27,8 @@ const reducer = (state = initialState, action) => {
         case actionTypes.CHANGE_PWD_CHILD:
             return Object.assign({}, state, {pwd_path: state.pwd_path.replace(/\/$/, "") + '/' + action.changeToFolder, pwd_parent: state.pwd_path});
         case actionTypes.CHANGE_PWD_PARENT:
-            return Object.assign({}, state, {pwd_path: state.pwd_parent, pwd_parent: state.pwd_parent.substr(0, state.pwd_parent.lastIndexOf("/"))});
+            let newParentPath = state.pwd_parent.substr(0, state.pwd_parent.lastIndexOf("/")) === '' ? '/' : state.pwd_parent.substr(0, state.pwd_parent.lastIndexOf("/"));
+            return Object.assign({}, state, {pwd_path: state.pwd_parent, pwd_parent: newParentPath});
         default:
             return state;
     }

@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import { FaFile } from 'react-icons/fa';
 
 class File extends React.Component{

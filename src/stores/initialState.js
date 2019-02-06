@@ -3,20 +3,8 @@ const initialState = {
         '/' : {
             title : '/',
             type : 'folder',
-            children: ['/newfolder', '/newfolder2'],
+            children: [],
             isRoot : true
-        },
-        '/newfolder' : {
-            type : 'folder',
-            title : 'newfolder',
-            children: [],
-            isRoot : false
-        },
-        '/newfolder2' : {
-            type : 'folder',
-            title : 'newfolder2',
-            children: [],
-            isRoot : false
         }
     },
     newNode :{
@@ -33,5 +21,4 @@ const initialState = {
     pwd_path: '/'
 }
 
-initialState.pwd = initialState.nodes['/'];
 export default initialState;

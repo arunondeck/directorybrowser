@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import actionTypes from '../actions/actionTypes';
-import {Row, Col, Grid, Navbar, Nav, NavItem} from 'react-bootstrap';
+import {Row, Col, Grid, Navbar, Nav, NavItem, Jumbotron} from 'react-bootstrap';
 //import DirectoryTitle from './DirectoryTitle.js';
 import DirectoryActions from './DirectoryActions.js';
 import File from './File.js';
@@ -28,6 +28,14 @@ class TreeViewContainer extends React.Component{
 
     render(){
         let formHTML = this.state.showAddForm ? <FormAddNew hideAddForm = {this.hideAddForm} addFolder={this.props.addFolder} addFile={this.props.addFile} /> : ''
+        let childHTML =this.props.pwd.children.length > 0 ? this.props.pwd.children.map(
+                (childNodePath) => this.props.nodes[childNodePath].type == 'file' ? <File key={childNodePath} path={childNodePath} title={this.props.nodes[childNodePath].title}/> : <Folder key={childNodePath} path={childNodePath} changePWDChild={this.props.changePWDChild} title={this.props.nodes[childNodePath].title}/>
+            ) : <Jumbotron>
+            <h1>Empty Directory</h1>
+            <p>
+                There are no folders in this directory. Why don't you create one by clicking the button above?
+            </p>
+        </Jumbotron>;
         return(
             <Grid xs={12} md={10} frameBorder={1} className='border border-dark'>
                     <Row className='directory-header'>
@@ -49,9 +57,7 @@ class TreeViewContainer extends React.Component{
                     </Row>
                     <Row className='directory-body'>
                         <Col>
-                        {this.props.pwd.children.map(
-                            (childNodePath) => this.props.nodes[childNodePath].type == 'file' ? <File key={childNodePath} path={childNodePath} title={this.props.nodes[childNodePath].title}/> : <Folder key={childNodePath} path={childNodePath} changePWDChild={this.props.changePWDChild} title={this.props.nodes[childNodePath].title}/>
-                        )}
+                            {childHTML}
                         </Col>
                     </Row>
                 {formHTML}

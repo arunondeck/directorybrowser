@@ -1,6 +1,6 @@
 import React from 'react';
 import {FaChevronUp, FaPlus} from 'react-icons/fa';
-import {Col, Nav, NavItem} from 'react-bootstrap';
+import {NavItem} from 'react-bootstrap';
 
 export default class DirectoryActions extends React.Component{
     render(){

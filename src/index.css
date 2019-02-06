@@ -26,3 +26,15 @@ svg {
   font-weight: bold;
   color: darkblue !important
 }
+
+.node, .node *{
+  font-size: 18px;
+}
+
+.jumbotron p{
+  font-weight: normal;
+}
+
+.node .title{
+  cursor: pointer;
+}
