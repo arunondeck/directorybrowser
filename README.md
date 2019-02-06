@@ -9,8 +9,10 @@ Used Libraries
 [react-icons](https://www.npmjs.com/package/react-icons)
 
 
-Commands
+Getting Started
 --------------
+After cloning the repository, run
+npm install
 
 To run,
 npm start
